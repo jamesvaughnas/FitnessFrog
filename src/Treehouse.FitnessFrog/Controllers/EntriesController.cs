@@ -46,8 +46,9 @@ namespace Treehouse.FitnessFrog.Controllers
 
         [HttpPost]
         // public ActionResult AddPost()
-        public ActionResult Add( string date, string activityId, string duration, 
-            string intensity, string exclude, string notes)
+        public ActionResult Add( DateTime? date, int? activityId, 
+           double? duration, Entry.IntensityLevel? intensity, 
+           bool? exclude, string notes)
        {
             // use header or Request.Form
             //string date = Request.Form["Date"];
@@ -57,13 +58,12 @@ namespace Treehouse.FitnessFrog.Controllers
             //// Exclude
 
             // now lets send data back to the page
-            ViewBag.Date = date;
-            ViewBag.ActivityId = activityId;
-            ViewBag.Duration = duration;
-            ViewBag.Intensity = intensity;
-            ViewBag.Exclude = exclude;
-            ViewBag.Notes = notes;
-
+            ViewBag.Date = ModelState["Date"].Value.AttemptedValue;  // date;
+            ViewBag.ActivityId = ModelState["ActivityId"].Value.AttemptedValue;  //activityId;
+            ViewBag.Duration = ModelState["Duration"].Value.AttemptedValue;  //duration;
+            ViewBag.Intensity = ModelState["Intensity"].Value.AttemptedValue;  //intensity;
+            ViewBag.Exclude = ModelState["Exclude"].Value.AttemptedValue;  //exclude;
+            ViewBag.Notes = ModelState["Notes"].Value.AttemptedValue;  //notes;
 
             return View();
         }
