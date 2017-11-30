@@ -57,13 +57,14 @@ namespace Treehouse.FitnessFrog.Controllers
             //// Intensity
             //// Exclude
 
+            // using the HtmlHelp method in the view means we do not need this code
             // now lets send data back to the page
-            ViewBag.Date = ModelState["Date"].Value.AttemptedValue;  // date;
-            ViewBag.ActivityId = ModelState["ActivityId"].Value.AttemptedValue;  //activityId;
-            ViewBag.Duration = ModelState["Duration"].Value.AttemptedValue;  //duration;
-            ViewBag.Intensity = ModelState["Intensity"].Value.AttemptedValue;  //intensity;
-            ViewBag.Exclude = ModelState["Exclude"].Value.AttemptedValue;  //exclude;
-            ViewBag.Notes = ModelState["Notes"].Value.AttemptedValue;  //notes;
+            //ViewBag.Date = ModelState["Date"].Value.AttemptedValue;  // date;
+            //ViewBag.ActivityId = ModelState["ActivityId"].Value.AttemptedValue;  //activityId;
+            //ViewBag.Duration = ModelState["Duration"].Value.AttemptedValue;  //duration;
+            //ViewBag.Intensity = ModelState["Intensity"].Value.AttemptedValue;  //intensity;
+            //ViewBag.Exclude = ModelState["Exclude"].Value.AttemptedValue;  //exclude;
+            //ViewBag.Notes = ModelState["Notes"].Value.AttemptedValue;  //notes;
 
             return View();
         }
