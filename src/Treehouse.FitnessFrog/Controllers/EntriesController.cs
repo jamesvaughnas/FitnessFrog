@@ -41,15 +41,28 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Add()
         {
-            return View();
+            var entry = new Entry()
+            {
+                Date = DateTime.Today
+            };
+            return View(entry);
         }
 
         [HttpPost]
         // public ActionResult AddPost()
-        public ActionResult Add( DateTime? date, int? activityId, 
-           double? duration, Entry.IntensityLevel? intensity, 
-           bool? exclude, string notes)
+        //public ActionResult Add( DateTime? date, int? activityId, 
+        //   double? duration, Entry.IntensityLevel? intensity, 
+        //   bool? exclude, string notes)
+        public ActionResult Add(Entry entry)
        {
+
+            if( ModelState.IsValid)
+            {
+                _entriesRepository.AddEntry(entry);
+
+                // TODO display the entries list page
+            }
+
             // use header or Request.Form
             //string date = Request.Form["Date"];
             //// ActivityId
@@ -66,7 +79,7 @@ namespace Treehouse.FitnessFrog.Controllers
             //ViewBag.Exclude = ModelState["Exclude"].Value.AttemptedValue;  //exclude;
             //ViewBag.Notes = ModelState["Notes"].Value.AttemptedValue;  //notes;
 
-            return View();
+            return View(entry);
         }
 
         public ActionResult Edit(int? id)
