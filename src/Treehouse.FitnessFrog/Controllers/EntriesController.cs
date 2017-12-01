@@ -61,6 +61,25 @@ namespace Treehouse.FitnessFrog.Controllers
                 _entriesRepository.AddEntry(entry);
 
                 // TODO display the entries list page
+                //List<Entry> entries = _entriesRepository.GetEntries();
+
+                //// Calculate the total activity.
+                //double totalActivity = entries
+                //    .Where(e => e.Exclude == false)
+                //    .Sum(e => e.Duration);
+
+                //// Determine the number of days that have entries.
+                //int numberOfActiveDays = entries
+                //    .Select(e => e.Date)
+                //    .Distinct()
+                //    .Count();
+
+                //ViewBag.TotalActivity = totalActivity;
+                //ViewBag.AverageDailyActivity = (totalActivity / (double)numberOfActiveDays);
+
+                // post/redirect/get pattern to prevent duplicate form submissions
+
+                return RedirectToAction("Index");
             }
 
             // use header or Request.Form
